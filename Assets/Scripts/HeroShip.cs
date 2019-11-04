@@ -13,7 +13,7 @@ public class HeroShip : MonoBehaviour {
     float minX = -23.0f;
     float maxX = 23.0f;
     float minY = 4.0f;
-    float maxY = 35.0f;
+    float maxY = 100.0f;
     void Start () {
         x = transform.position.x;
         y = transform.position.y;
@@ -35,7 +35,7 @@ public class HeroShip : MonoBehaviour {
         transform.position = new Vector3 (x, y, 0); // Set global position
         if (Input.GetButtonDown ("Fire1")) {
             audioSource.PlayOneShot (pew);
-            Instantiate (bullet, transform.position + new Vector3 (0, 3, 0), transform.rotation);
+            Instantiate (bullet, transform.position + new Vector3 (0, 6, 0), transform.rotation);
             
         }
     }
