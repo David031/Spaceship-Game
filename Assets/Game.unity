@@ -458,7 +458,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pew: {fileID: 8300000, guid: 04fe3220062d7ed4aa95e985eec81993, type: 3}
-  bullet: {fileID: 1866125689396646081, guid: 846e5d588ce76974892f129b61d4ca14, type: 3}
+  bullet: {fileID: 399398647232891335, guid: 98eaec1b51925408e88a036432141358, type: 3}
   speed: 50
 --- !u!64 &835319003
 MeshCollider:
