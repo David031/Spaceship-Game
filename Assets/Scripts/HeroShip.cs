@@ -87,5 +87,4 @@ public class HeroShip : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
 }
