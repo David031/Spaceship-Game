@@ -79,4 +79,13 @@ public class HeroShip : MonoBehaviour
 
         }
     }
+    private void OnTriggerEnter(Collider col)
+    {
+        if (col)
+        {
+            Destroy(col.gameObject);
+            Destroy(gameObject);
+        }
+    }
+
 }

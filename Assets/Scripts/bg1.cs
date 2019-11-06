@@ -17,12 +17,15 @@ public class bg1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        y -= speed * Time.deltaTime;
-        if (y < -320.0f)
+        if (heroShip != null)
         {
-            y = 280.0f;
+            y -= speed * Time.deltaTime;
+            if (y < -320.0f)
+            {
+                y = 280.0f;
+            }
+            x = -0.33f * heroShip.transform.position.x;
+            transform.position = new Vector3(x, y, transform.position.z);
         }
-        x = -0.33f * heroShip.transform.position.x;
-        transform.position = new Vector3(x, y, transform.position.z);
     }
 }
