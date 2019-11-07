@@ -24,7 +24,6 @@ public class minion : MonoBehaviour {
     }
     void OnCollisionEnter (Collision col) {
         if (col.gameObject.tag == "bullet" || col.gameObject.tag == "heroShip") {
-            Debug.Log (col.gameObject.tag);
             Destroy (col.gameObject);
             Destroy (gameObject);
         }

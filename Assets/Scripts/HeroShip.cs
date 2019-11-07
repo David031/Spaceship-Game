@@ -9,12 +9,13 @@ public class HeroShip : MonoBehaviour {
     AudioSource audioSource;
     float x;
     float y;
-    
+
     public float speed = 20.0f;
     float minX = -23.0f;
     float maxX = 23.0f;
     float minY = 4.0f;
     float maxY = 100.0f;
+
     void Start () {
         x = transform.position.x;
         y = transform.position.y;
@@ -65,8 +66,14 @@ public class HeroShip : MonoBehaviour {
         }
     }
     private void OnTriggerEnter (Collider col) {
-        if (col) {
+        if (col.tag == "Rocket") {
+            gameController.playerHP -= 10;
             Destroy (col.gameObject);
+        } else if (col.tag == "Minion") {
+            gameController.playerHP -= 50;
+            Destroy (col.gameObject);
+        }
+        if (gameController.playerHP <= 0) {
             Destroy (gameObject);
         }
     }
