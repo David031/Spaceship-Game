@@ -11,8 +11,8 @@ public class HeroShip : MonoBehaviour {
     float y;
 
     public float speed = 20.0f;
-    float minX = -23.0f;
-    float maxX = 23.0f;
+    float minX = -30.0f;
+    float maxX = 30.0f;
     float minY = 4.0f;
     float maxY = 100.0f;
 
