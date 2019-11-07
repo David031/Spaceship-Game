@@ -36,7 +36,7 @@ public class gameController : MonoBehaviour {
     void genMinionWithOrder (float delay, int callCount) {
         float speed = 15;
         timerO += Time.deltaTime;
-        if (delay == null || delay < 1) {
+        if (delay < 1) {
             Debug.Log ("Value Error");
             return;
         } else if (timerO > (delay - 1f + 0.9999f) && count <= callCount) {

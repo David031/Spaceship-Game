@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 public class HeroShip : MonoBehaviour {
-
+    AudioSource audioSource;
     public AudioClip pew;
     public GameObject bullet;
-    AudioSource audioSource;
+
     float x;
     float y;
 
@@ -19,7 +19,6 @@ public class HeroShip : MonoBehaviour {
     void Start () {
         x = transform.position.x;
         y = transform.position.y;
-
         audioSource = GetComponent<AudioSource> ();
     }
 
