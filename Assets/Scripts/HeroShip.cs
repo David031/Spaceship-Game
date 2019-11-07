@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class HeroShip : MonoBehaviour {
 
     public AudioClip pew;
@@ -61,19 +61,41 @@ public class HeroShip : MonoBehaviour {
 
         if (Input.GetButtonDown ("Fire1")) {
             audioSource.PlayOneShot (pew);
-            Instantiate (bullet, transform.position + new Vector3 (0, 6, 0), transform.rotation);
+            switch (gameController.ammoNum) {
+                case 1:
+                    Instantiate (bullet, transform.position + new Vector3 (0, 6, 0), transform.rotation);
+                    break;
+                case 2:
+                    Instantiate (bullet, transform.position + new Vector3 (-2, 3.5f, 0), transform.rotation);
+                    Instantiate (bullet, transform.position + new Vector3 (2, 3.5f, 0), transform.rotation);
+                    break;
+                case 3:
+                    Instantiate (bullet, transform.position + new Vector3 (-3, 3.5f, 0), transform.rotation);
+                    Instantiate (bullet, transform.position + new Vector3 (0, 6, 0), transform.rotation);
+                    Instantiate (bullet, transform.position + new Vector3 (3, 3.5f, 0), transform.rotation);
+                    break;
+                case 4:
+                    Instantiate (bullet, transform.position + new Vector3 (-3.5f, 3.5f, 0), transform.rotation);
+                    Instantiate (bullet, transform.position + new Vector3 (-1, 5, 0), transform.rotation);
+                    Instantiate (bullet, transform.position + new Vector3 (1, 5, 0), transform.rotation);
+                    Instantiate (bullet, transform.position + new Vector3 (3.5f, 3.5f, 0), transform.rotation);
+                    break;
+                default:
+                    Instantiate (bullet, transform.position + new Vector3 (0, 6, 0), transform.rotation);
+                    break;
+            }
 
         }
     }
     private void OnTriggerEnter (Collider col) {
         if (col.tag == "Rocket") {
-            gameController.playerHP -= 10;
+            gameController.playerHP -= (int) (Random.Range (10f, 15f) * gameController.currentLevel * Random.Range (1f, 2f));
             Destroy (col.gameObject);
         } else if (col.tag == "Minion") {
-            gameController.playerHP -= 50;
-            Destroy (col.gameObject);
+            gameController.playerHP -= (int) (Random.Range (50f, 70f) * gameController.currentLevel * Random.Range (1f, 2f));
         }
         if (gameController.playerHP <= 0) {
+            gameController.isGameEnd = true;
             Destroy (gameObject);
         }
     }
