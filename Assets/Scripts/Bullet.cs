@@ -14,5 +14,8 @@ public class Bullet : MonoBehaviour {
         if (transform.position.y > 62) {
             Destroy (gameObject);
         }
+        if (gameController.gameIsEnd) {
+            Destroy (gameObject);
+        }
     }
 }

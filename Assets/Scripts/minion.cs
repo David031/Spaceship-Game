@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class minion : MonoBehaviour {
+    AudioSource audioSource;
     public GameObject bullet;
     public GameObject expolEffect;
     public GameObject hitEffect;
-    AudioSource audioSource;
     public AudioClip hit;
     int hp;
     float timeri = 0f;
@@ -18,14 +18,19 @@ public class minion : MonoBehaviour {
     }
     void Update () {
         timeri += Time.deltaTime;
-        if (timeri > 0.99f) {
+        if (timeri > 1f) {
             Instantiate (bullet, transform.position + new Vector3 (4, -6, 0), transform.rotation * Quaternion.Euler (0f, 180f, 0f));
             Instantiate (bullet, transform.position + new Vector3 (-4, -6, 0), transform.rotation * Quaternion.Euler (0f, 180f, 0f));
-        }
-        if (timeri > 1f) {
             timeri = 0;
         }
         if (transform.position.y < -20) {
+            Destroy (gameObject);
+        }
+        if (gameController.bossIsGen) {
+            Instantiate (expolEffect, transform.position, transform.rotation);
+            Destroy (gameObject);
+        }
+        if (gameController.gameIsEnd) {
             Destroy (gameObject);
         }
     }
@@ -41,7 +46,7 @@ public class minion : MonoBehaviour {
             Destroy (col.gameObject);
         }
         if (hp <= 0) {
-            gameController.playerXP += (int) (Random.Range (50f, 80f) * gameController.currentLevel * Random.Range (1f, 2f));
+            gameController.playerXP += (int) (Random.Range (50f, 80f) * gameController.currentLevel * Random.Range (2f, 3f));
             gameController.score += (int) (Random.Range (100f, 200f) * gameController.currentLevel * Random.Range (1f, 2f));
             Instantiate (expolEffect, transform.position, transform.rotation);
             Destroy (gameObject);

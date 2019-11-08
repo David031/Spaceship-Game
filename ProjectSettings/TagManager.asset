@@ -9,6 +9,7 @@ TagManager:
   - Thruster
   - Rocket
   - Minion
+  - BossBullet
   layers:
   - Default
   - TransparentFX

@@ -13,7 +13,6 @@ public class healthbar : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        
         bar.fillAmount = (float) gameController.playerHP / (float) gameController.playerHPTotal;
     }
 }
