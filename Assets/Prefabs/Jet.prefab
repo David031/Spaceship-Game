@@ -5592,8 +5592,8 @@ MonoBehaviour:
   hitEffect: {fileID: 3293493580766376052, guid: 3040bfe615d2bed42b697e0a3af78bef,
     type: 3}
   hit: {fileID: 8300000, guid: 216c8172d8b9d5143b1597bce14084ae, type: 3}
-  bullet: {fileID: 4558604496113620979, guid: 153c3f53c75e326458cb8a0faf6768ce, type: 3}
-  rocket: {fileID: 1410974235538306769, guid: ea11227fceaa4de4f99fbfa046116d87, type: 3}
+  bullet: {fileID: 5150881367469618457, guid: bc46a118a1538894bb05975eda3c7c02, type: 3}
+  rocket: {fileID: 3177227635831388773, guid: 07af77f24134e9e4a89ad213236f967a, type: 3}
 --- !u!54 &1174352367484198535
 Rigidbody:
   m_ObjectHideFlags: 0
