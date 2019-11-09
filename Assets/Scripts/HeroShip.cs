@@ -26,7 +26,7 @@ public class HeroShip : MonoBehaviour {
 
     void Update () {
         render.enabled = gameController.gameStart;
-        if (gameController.gameStart) {
+        if (gameController.gameStart && !gameController.gameIsEnd) {
             bool l = Input.GetKey (KeyCode.LeftArrow);
             bool r = Input.GetKey (KeyCode.RightArrow);
             bool u = Input.GetKey (KeyCode.UpArrow);
@@ -87,6 +87,9 @@ public class HeroShip : MonoBehaviour {
 
             }
 
+        }
+        if (gameController.gameIsEnd) {
+            Destroy (gameObject);
         }
     }
     private void OnTriggerEnter (Collider col) {
